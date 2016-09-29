@@ -55,7 +55,7 @@ echo "igb_uio" | sudo tee -a /etc/modules
 # I need to set a second adapter in Vagrantfile
 # Note: NIC setup does not persist across reboots
 sudo ifconfig eth1 down
-sudo ${RTE_SDK}/tools/dpdk_nic_bind.py --bind=igb_uio eth1
+sudo ${RTE_SDK}/tools/dpdk-devbind.py --bind=igb_uio eth1
 
 # Add env variables setting to .profile file so that they are set at each login
 echo "export RTE_SDK=${RTE_SDK}" >> ${HOME}/.profile
